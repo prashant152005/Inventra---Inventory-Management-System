@@ -21,7 +21,7 @@ public class AdminSeeder {
 
         userRepository.findByUsername("admin")
             .ifPresentOrElse(
-                u -> System.out.println("✔ Admin already exists"),
+                u -> System.out.println("Admin already exists"),
                 () -> {
                     User admin = new User();
                     admin.setUsername("admin");
@@ -29,7 +29,7 @@ public class AdminSeeder {
                     admin.setRole("ADMIN");
 
                     userRepository.save(admin);
-                    System.out.println("✅ Admin created (username=admin, password=admin123)");
+                    System.out.println("Admin created (username=admin, password=admin123)");
                 }
             );
     }
