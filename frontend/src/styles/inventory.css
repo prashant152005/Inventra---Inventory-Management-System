@@ -1,0 +1,71 @@
+.inventory-page {
+  padding: 30px;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.inventory-table tr.clickable {
+  cursor: pointer;
+}
+
+.inventory-table tr:hover {
+  background-color: #f5f7fa;
+}
+
+.low {
+  color: #f97474;
+  font-weight: bold;
+}
+
+.ok {
+  color: #a7dba9;
+}
+.row-click {
+  cursor: pointer;
+}
+
+.row-click:hover {
+  background-color: #f1f5f9;
+}
+ 
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  padding: 25px;
+  width: 360px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-card h3 {
+  margin-bottom: 15px;
+}
+
+.modal-card input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

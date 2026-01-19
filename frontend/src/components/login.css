@@ -1,0 +1,89 @@
+/* Full page background  */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card */
+.login-card {
+  background: #ffffff;
+  padding: 32px;
+  width: 320px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  animation: fadeIn 0.6s ease;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1976d2;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+/* Button */
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background: #125aa0;
+}
+
+/* Register link */
+.login-card a {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  color: #1976d2;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+.info-text {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
