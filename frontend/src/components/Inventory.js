@@ -73,12 +73,6 @@ export default function Inventory() {
           {role === "ADMIN" && (
             <a onClick={() => nav("/users")}>User Management</a>
           )}
-          {role === "ADMIN" && (
-  <a onClick={() => nav("/register-admin")}>
-    Register Admin
-  </a>
-)}
-
           <a className="active">Inventory</a>
           <a className="logout" onClick={logout}>Logout</a>
         </div>

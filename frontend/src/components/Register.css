@@ -1,72 +1,103 @@
-.register-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #43cea2, #185a9d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.register-card {
-  background: white;
-  padding: 32px;
-  width: 340px;
+/*REGISTER PAGE CONTAINER*/
+.form-box {
+  max-width: 420px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 30px 28px;
   border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  animation: fadeIn 0.6s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
 }
 
-.register-card h2 {
+/*TITLE*/
+.form-box h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #185a9d;
+  margin-bottom: 22px;
+  color: #1e3a8a;
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.register-card input {
+/*INPUTS & SELECT*/
+.form-box input,
+.form-box select {
   width: 100%;
-  padding: 10px;
+  padding: 11px 12px;
   margin-bottom: 14px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
-.register-card input:focus {
+.form-box input:focus,
+.form-box select:focus {
   outline: none;
-  border-color: #185a9d;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
-.register-card button {
+/*DROPDOWN*/
+.form-box select {
+  background-color: #f9fafb;
+  cursor: pointer;
+}
+
+/*BUTTONS*/
+.form-box button {
   width: 100%;
-  padding: 10px;
-  background: #185a9d;
-  color: white;
+  padding: 11px;
+  border-radius: 8px;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
 }
 
-.register-card button:hover {
-  background: #0f3d63;
+/* Primary */
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
-.link {
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Secondary */
+.btn-secondary {
+  background-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #1d4ed8;
+}
+
+/* Default */
+.form-box .btn {
+  background-color: #1d4ed8;
+  margin-top: 10px;
+}
+
+.form-box .btn:hover {
+  background-color: #d1d5db;
+}
+
+/*OTP INPUT HIGHLIGHT*/
+.form-box input[placeholder="Enter OTP"] {
+  letter-spacing: 3px;
   text-align: center;
-  margin-top: 12px;
-  color: #185a9d;
-  cursor: pointer;
+  font-weight: 600;
 }
 
-.link:hover {
-  text-decoration: underline;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/*MOBILE RESPONSIVE*/
+@media (max-width: 480px) {
+  .form-box {
+    margin: 30px 14px;
+    padding: 22px;
   }
 }

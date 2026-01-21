@@ -1,6 +1,10 @@
 .product-page {
   padding: 30px;
 }
+.product-page  {
+  padding: 30px;
+}
+
 
 .back-btn {
   margin-bottom: 20px;
@@ -63,4 +67,9 @@
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.dashboard{
+  /* margin-top: 20px; */
+  width: 100%;
 }

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
-
 
 export default function UserManagement() {
   const [users, setUsers] = useState([]);
-  const [newUser, setNewUser] = useState({ username: "", password: "" });
+  const nav = useNavigate();
 
   const token = localStorage.getItem("token");
 
@@ -23,17 +23,6 @@ export default function UserManagement() {
     loadUsers();
   }, []);
 
-  const registerStaff = async () => {
-    if (!newUser.username || !newUser.password) {
-      alert("All fields required");
-      return;
-    }
-
-    await api.post("/api/users/register", newUser);
-    setNewUser({ username: "", password: "" });
-    loadUsers();
-  };
-
   const deleteUser = async (id) => {
     if (!window.confirm("Delete this user?")) return;
     await api.delete(`/api/users/delete/${id}`);
@@ -43,28 +32,21 @@ export default function UserManagement() {
   return (
     <div className="main">
       <h2 className="page-title">User Management</h2>
+    
+    <button className="btn" onClick={() => nav("/inventory")}>
+        Back to Dashboard
+      </button>
 
-      {/* ADD STAFF */}
-      <div className="form-box">
-        <h3>Register Staff</h3>
+      {/* REGISTER BUTTON */}
+      <button
+        className="btn btn-primary"
+        style={{ marginBottom: "20px" }}
+        onClick={() => nav("/register")}
+      >
+        ➕ Register User
+      </button>
 
-        <input
-          placeholder="Username"
-          value={newUser.username}
-          onChange={e => setNewUser({ ...newUser, username: e.target.value })}
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          value={newUser.password}
-          onChange={e => setNewUser({ ...newUser, password: e.target.value })}
-        />
-
-        <button className="btn btn-primary" onClick={registerStaff}>
-          Register Staff
-        </button>
-      </div>
+      
 
       {/* USERS TABLE */}
       <table className="product-table">

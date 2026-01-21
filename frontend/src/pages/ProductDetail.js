@@ -78,12 +78,9 @@ export default function ProductDetail() {
 
   return (
     <div className="product-page">
-      <button className="back-btn" onClick={() => nav("/inventory")}>
-        ← Back to Inventory
-      </button>
 
       <h2>{product.productName}</h2>
-
+      
       <div className="product-card">
         <p><b>SKU:</b> {product.sku}</p>
         <p><b>Price:</b> ₹{product.unitPrice}</p>
@@ -107,7 +104,7 @@ export default function ProductDetail() {
       {/* ADMIN ACTIONS */}
       {role === "ADMIN" && (
         <div className="admin-actions">
-
+          
           <div className="action-box">
             <h4>Update Stock</h4>
             <input
@@ -132,6 +129,10 @@ export default function ProductDetail() {
           <button className="delete-btn" onClick={deleteProduct}>
             🗑 Delete Product
           </button>
+          
+          <button className="dashboard" onClick={() => nav("/inventory")}>
+        Back to Dashboard
+      </button>
 
         </div>
       )}
