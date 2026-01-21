@@ -76,44 +76,71 @@ export default function ProductDetail() {
     nav("/inventory");
   };
 
-  return (
-    <div className="product-page">
+    return (
+  <div className="product-page">
+<button
+  className="btn secondary back-btn"
+  onClick={() => nav("/inventory")}
+>
+  ← Back to Dashboard
+</button>
 
+    {/* HEADER */}
+    <div className="product-header">
       <h2>{product.productName}</h2>
-      
-      <div className="product-card">
-        <p><b>SKU:</b> {product.sku}</p>
-        <p><b>Price:</b> ₹{product.unitPrice}</p>
-        <p><b>Stock:</b> {product.quantity}</p>
-        <p><b>Low Stock Limit:</b> {product.reorderLevel}</p>
+      <span className={`status-badge ${isLow ? "low" : "ok"}`}>
+        {isLow ? "LOW STOCK" : "IN STOCK"}
+      </span>
+    </div>
 
-        <p>
-          <b>Status:</b>{" "}
-          {isLow
-            ? <span className="low-stock">Low Stock</span>
-            : <span className="in-stock">In Stock</span>}
-        </p>
-
-        {isLow && (
-          <div className="alert-box">
-            ⚠ Stock below reorder level
-          </div>
-        )}
+    {/* PRODUCT INFO */}
+    <div className="product-card">
+      <div className="info-row">
+        <span>SKU</span>
+        <strong>{product.sku}</strong>
       </div>
 
-      {/* ADMIN ACTIONS */}
-      {role === "ADMIN" && (
-        <div className="admin-actions">
-          
+      <div className="info-row">
+        <span>Unit Price</span>
+        <strong>₹{product.unitPrice}</strong>
+      </div>
+
+      <div className="info-row">
+        <span>Available Stock</span>
+        <strong>{product.quantity}</strong>
+      </div>
+
+      <div className="info-row">
+        <span>Reorder Level</span>
+        <strong>{product.reorderLevel}</strong>
+      </div>
+
+      {isLow && (
+        <div className="alert-box">
+          ⚠ Stock is below reorder threshold
+        </div>
+      )}
+    </div>
+
+    {/* ADMIN ACTIONS */}
+    {role === "ADMIN" && (
+      <div className="admin-section">
+
+        <h3>Admin Controls</h3>
+
+        <div className="actions-grid">
+
           <div className="action-box">
             <h4>Update Stock</h4>
             <input
               type="number"
-              placeholder="+ / - Quantity"
+              placeholder="Add / Reduce Quantity"
               value={qtyChange}
               onChange={e => setQtyChange(e.target.value)}
             />
-            <button onClick={updateStock}>Update</button>
+            <button className="btn primary" onClick={updateStock}>
+              Update Stock
+            </button>
           </div>
 
           <div className="action-box">
@@ -123,19 +150,27 @@ export default function ProductDetail() {
               value={price}
               onChange={e => setPrice(e.target.value)}
             />
-            <button onClick={updatePrice}>Save Price</button>
+            <button className="btn primary" onClick={updatePrice}>
+              Save Price
+            </button>
           </div>
 
-          <button className="delete-btn" onClick={deleteProduct}>
-            🗑 Delete Product
-          </button>
-          
-          <button className="dashboard" onClick={() => nav("/inventory")}>
-        Back to Dashboard
-      </button>
-
         </div>
-      )}
-    </div>
-  );
+
+        <button className="btn danger" onClick={deleteProduct}>
+          🗑 Delete Product
+        </button>
+      </div>
+    )}
+
+    <button
+  className="btn secondary back-btn-top"
+  onClick={() => nav("/inventory")}
+>
+  ← Back to Dashboard
+</button>
+
+
+  </div>
+);
 }

@@ -33,9 +33,7 @@ export default function UserManagement() {
     <div className="main">
       <h2 className="page-title">User Management</h2>
     
-    <button className="btn" onClick={() => nav("/inventory")}>
-        Back to Dashboard
-      </button>
+    
 
       {/* REGISTER BUTTON */}
       <button
